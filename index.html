@@ -26,6 +26,19 @@
     Seu navegador não suporta vídeo.
   </video>
 
+  <img id="inviteCapa" src="capa.png" alt="Convite" style="display:none; width:100%; height:auto;">
+</div>
+
+<script>
+  const video = document.getElementById("inviteVideo");
+  const capa = document.getElementById("inviteCapa");
+
+  video.addEventListener("ended", function() {
+    video.style.display = "none";
+    capa.style.display = "block";
+  });
+</script>
+
   <div class="card">
     <img src="1.png" alt="Convite de 15 anos da Tifany">
     <a class="hotspot confirm" href="https://w.app/qtg2fo" target="_blank" rel="noopener" aria-label="Confirmação de presença"></a>

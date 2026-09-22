@@ -4,57 +4,151 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Convite de 15 anos — Tifany</title>
+
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;background:#160b2d;color:#fff;font-family:Georgia,serif;text-align:center}
-  .wrap{max-width:520px;margin:0 auto;padding:0 0 28px}
-  video{width:100%;display:block;background:#000}
-  .card{position:relative;width:100%;overflow:hidden;display:none}
-  .card.show{display:block}
-  .card img{display:block;width:100%;height:auto}
-  .hotspot{position:absolute;bottom:12.4%;width:23%;height:11.2%;border-radius:50%;display:block;z-index:10;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-  .confirm{left:14.2%}
-  .gifts{left:38.7%}
-  .location{left:63.4%}
-  .hint{padding:12px 18px 0;font-family:Arial,sans-serif;font-size:12px;opacity:.75}
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: #160b2d;
+    color: #fff;
+    font-family: Georgia, serif;
+    text-align: center;
+  }
+
+  .wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 0 28px;
+  }
+
+  video {
+    width: 100%;
+    display: block;
+    background: #000;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: none;
+  }
+
+  .card.show {
+    display: block;
+  }
+
+  .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hotspot {
+    position: absolute;
+    bottom: 12.4%;
+    width: 23%;
+    height: 11.2%;
+    border-radius: 50%;
+    display: block;
+    z-index: 10;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .confirm {
+    left: 14.2%;
+  }
+
+  .gifts {
+    left: 38.7%;
+  }
+
+  .location {
+    left: 63.4%;
+  }
+
+  .hint {
+    padding: 12px 18px 0;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    opacity: .75;
+  }
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
+
+  <!-- VÍDEO -->
   <video id="inviteVideo" controls playsinline preload="metadata">
     <source src="convite.mp4" type="video/mp4">
     Seu navegador não suporta vídeo.
   </video>
 
-  <img id="inviteCapa" src="capa.png" alt="Convite" style="display:none; width:100%; height:auto;">
+  <!-- CONVITE FINAL -->
+  <div class="card" id="card">
+
+    <img src="1.png" alt="Convite de 15 anos da Tifany">
+
+    <!-- CONFIRMAÇÃO -->
+    <a
+      class="hotspot confirm"
+      href="https://w.app/qtg2fo"
+      target="_blank"
+      rel="noopener"
+      aria-label="Confirmação de presença">
+    </a>
+
+    <!-- PRESENTES -->
+    <a
+      class="hotspot gifts"
+      href="https://drive.google.com/file/d/1f0ef4O6F6g8KMC1O1-jMGDPAOS0c5D3I/view?usp=drivesdk"
+      target="_blank"
+      rel="noopener"
+      aria-label="Sugestões de presentes">
+    </a>
+
+    <!-- LOCALIZAÇÃO -->
+    <a
+      class="hotspot location"
+      href="https://maps.app.goo.gl/ASxRDYb2m1Nt3jZM7?g_st=aw"
+      target="_blank"
+      rel="noopener"
+      aria-label="Localização">
+    </a>
+
+  </div>
+
+  <div class="hint" id="hint">
+    Toque nos botões do convite para abrir os links.
+  </div>
+
 </div>
 
 <script>
   const video = document.getElementById("inviteVideo");
-  const capa = document.getElementById("inviteCapa");
+  const card = document.getElementById("card");
+  const hint = document.getElementById("hint");
 
-  video.addEventListener("ended", function() {
+  video.addEventListener("ended", function () {
+
+    // Esconde o vídeo
     video.style.display = "none";
-    capa.style.display = "block";
+
+    // Mostra o convite final
+    card.classList.add("show");
+
+    // Mostra a orientação dos botões
+    hint.style.display = "block";
+
   });
 </script>
 
-  <div class="card">
-    <img src="1.png" alt="Convite de 15 anos da Tifany">
-    <a class="hotspot confirm" href="https://w.app/qtg2fo" target="_blank" rel="noopener" aria-label="Confirmação de presença"></a>
-    <a class="hotspot gifts" href="https://drive.google.com/file/d/1f0ef4O6F6g8KMC1O1-jMGDPAOS0c5D3I/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Sugestões de presentes"></a>
-    <a class="hotspot location" href="https://maps.app.goo.gl/ASxRDYb2m1Nt3jZM7?g_st=aw" target="_blank" rel="noopener" aria-label="Localização"></a>
-  </div>
-  <div class="hint" id="hint" style="display:none">Toque nos botões do convite para abrir os links.</div>
-</div>
-<script>
-  const video = document.getElementById('inviteVideo');
-  const card = document.querySelector('.card');
-  const hint = document.getElementById('hint');
-  video.addEventListener('ended', () => {
-    card.classList.add('show');
-    hint.style.display = 'block';
-  });
-</script>
 </body>
 </html>
